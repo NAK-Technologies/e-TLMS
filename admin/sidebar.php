@@ -12,22 +12,22 @@
           <li class="<?php echo Route::name() == '/admin_user.php' ? 'active' : '' ?>">
                <a href="admin_user.php"><i class="icon-chevron-right"></i><i class="icon-user"></i> Admin Users</a>
           </li>
-          <li class="<?php echo Route::name() == '/department.php' ? 'active' : '' ?>">
+          <li class="<?php echo preg_match('/(department)/i', Route::name()) ? 'active' : '' ?>">
                <a href="department.php"><i class="icon-chevron-right"></i><i class="icon-building"></i> Department</a>
           </li>
-          <li class="<?php echo preg_match('/(students)/i', Route::name()) ? 'active' : '' ?>">
+          <li class="<?php echo preg_match('/(student)/i', Route::name()) ? 'active' : '' ?>">
                <a href="students.php"><i class="icon-chevron-right"></i><i class="icon-group"></i> Students</a>
           </li>
-          <li class="<?php echo preg_match('/(teachers)/i', Route::name()) ? 'active' : '' ?>">
+          <li class="<?php echo preg_match('/(teacher)/i', Route::name()) ? 'active' : '' ?>">
                <a href="teachers.php"><i class="icon-chevron-right"></i><i class="icon-group"></i> Teachers</a>
           </li>
           <li class="<?php echo Route::name() == '/downloadable.php' ? 'active' : '' ?>">
                <a href="downloadable.php"><i class="icon-chevron-right"></i><i class="icon-download"></i> Downloadable Materials</a>
           </li>
-          <li class="<?php echo Route::name() == '/assignment.php' ? 'active' : '' ?>">
+          <li class="<?php echo preg_match('/(assignment)/i', Route::name()) ? 'active' : '' ?>">
                <a href="assignment.php"><i class="icon-chevron-right"></i><i class="icon-upload"></i> Uploaded Assignments</a>
           </li>
-          <li class="<?php echo Route::name() == '/content.php' ? 'active' : '' ?>">
+          <li class="<?php echo preg_match('/(content)/i', Route::name()) ? 'active' : '' ?>">
                <a href="content.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> Content</a>
           </li>
           <li class="<?php echo Route::name() == '/user_log.php' ? 'active' : '' ?>">

@@ -30,13 +30,14 @@
                                                 <th>Photo</th>
                                                 <th>Name</th>
                                                 <th>Username</th>
-
+                                                <th>Supervisor</th>
+                                                <th></th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $teacher_query = mysqli_query($conn, "select * from teacher") or die(mysqli_error());
+                                            $teacher_query = mysqli_query($conn, "select * from teacher") or die();
                                             while ($row = mysqli_fetch_array($teacher_query)) {
                                                 $id = $row['teacher_id'];
                                                 $teacher_stat = $row['teacher_stat'];
@@ -48,7 +49,7 @@
                                                     <td width="40"><img class="img-circle" src="<?php echo $row['location']; ?>" height="50" width="50"></td>
                                                     <td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td>
                                                     <td><?php echo $row['username']; ?></td>
-
+                                                    <td><input type="checkbox" <?php echo $row['is_supervisor'] ? 'checked' : '' ?> onclick="updateSupervisory(<?php echo $row['teacher_id'] ?>, this)" /></td>
                                                     <td width="50"><a href="edit_teacher.php<?php echo '?id=' . $id; ?>" class="btn btn-success"><i class="icon-pencil"></i></a></td>
                                                     <?php if ($teacher_stat == 'Activated') { ?>
                                                         <td width="120"><a href="de_activate.php<?php echo '?id=' . $id; ?>" class="btn btn-danger"><i class="icon-remove"></i> Deactivate</a></td>
