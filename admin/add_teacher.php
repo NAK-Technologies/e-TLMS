@@ -66,7 +66,7 @@
       $firstname = $_POST['firstname'];
       $lastname = $_POST['lastname'];
       $department_id = $_POST['department'];
-
+      $password = md5(123456789);
 
       $query = mysqli_query($conn, "select * from teacher where firstname = '$firstname' and lastname = '$lastname' ") or die();
       $count = mysqli_num_rows($query);
@@ -78,8 +78,8 @@
      <?php
       } else {
 
-        mysqli_query($conn, "insert into teacher (firstname,lastname,location,department_id)
-								values ('$firstname','$lastname','uploads/NO-IMAGE-AVAILABLE.jpg','$department_id')         
+        mysqli_query($conn, "INSERT INTO teacher (`firstname`,`lastname`,`location`,`department_id`, `password`)
+								values ('$firstname','$lastname','uploads/NO-IMAGE-AVAILABLE.jpg','$department_id', '$password')         
 								") or die(); ?>
        <script>
          window.location = "teachers.php";

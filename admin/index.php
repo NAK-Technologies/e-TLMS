@@ -1,4 +1,10 @@
 <?php include('header.php'); ?>
+<?php
+// if (isset($_SESSION['id'])) {
+// 	header('location: dashboard.php');
+// }
+
+?>
 
 <body id="login">
 	<div class="container">
