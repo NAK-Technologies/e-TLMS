@@ -26,4 +26,11 @@
 		</div>
 	</div>
 </div>
+<?php
+$q = "SELECT * from student inner join class on student.class_id=class.class_id  where student_id = '$session_id' and class.has_assignment = 1";
+$r = mysqli_query($conn, $q);
+if (mysqli_num_rows($r) > 0) {
+?>
+	<span style="height: 50px; width: 50px; display: flex; justify-content: center; align-items: center; border-radius: 50%; background-color: #3388ff; box-shadow: 2px 2px 5px #33333373; color: white; position: fixed; bottom: 100px; left: 100px;"><i class="icon-book"></i> <b style="color: black;"></span>
+<?php } ?>
 <?php include('avatar_modal_student.php'); ?>
