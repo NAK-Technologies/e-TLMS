@@ -8,7 +8,7 @@
 				<a class="brand" href="#">Welcome to: e-TLMS</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav pull-right">
-						<?php $query = mysqli_query($conn, "select * from teacher where teacher_id = '$session_id'") or die(mysqli_error());
+						<?php $query = mysqli_query($conn, "select * from teacher where teacher_id = '$session_id'") or die();
 						$row = mysqli_fetch_array($query);
 						?>
 						<li class="dropdown">
@@ -34,6 +34,6 @@
 	$r = mysqli_query($conn, $q);
 	if (mysqli_num_rows($r) > 0) {
 	?>
-		<span style="height: 50px; width: 50px; display: flex; justify-content: center; align-items: center; border-radius: 50%; background-color: #3388ff; box-shadow: 2px 2px 5px #33333373; color: white; position: fixed; bottom: 100px; left: 100px;"><i class="icon-book"></i> <b style="color: black;"></span>
+		<span onclick="window.location.href = 'fyp_teacher.php'" style="height: 50px; width: 50px; display: flex; justify-content: center; align-items: center; border-radius: 50%; background-color: #3388ff; box-shadow: 2px 2px 5px #33333373; color: white; position: fixed; bottom: 100px; left: 100px; cursor: pointer;"><i class="icon-book"></i> <b style="color: black;"></span>
 	<?php } ?>
 	<?php include('avatar_modal.php'); ?>
