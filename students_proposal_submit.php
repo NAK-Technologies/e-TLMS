@@ -26,6 +26,7 @@ if (isset($_POST['submit'])) {
 
      if (mysqli_query($conn, $q)) {
           echo 'done';
+          header('location: fyp_student.php');
      } else {
           echo 'error';
      }
