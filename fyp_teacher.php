@@ -1,6 +1,11 @@
 <?php
 include 'header_dashboard.php';
 include 'session.php';
+
+$q = "SELECT * from fyp_proposal";
+$proposals = $q
+
+
 ?>
 
 <body>
