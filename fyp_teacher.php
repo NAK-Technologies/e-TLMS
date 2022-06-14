@@ -12,7 +12,7 @@ $proposals = mysqli_query($conn, $q);
 <body>
      <?php include 'navbar_teacher.php'; ?>
      <div class="container-fluid">
-          <table>
+          <table class="table table-striped" style="width: 800px; margin: 0 auto;">
                <tr>
                     <th>Project</th>
                     <th>Student 1</th>
@@ -47,9 +47,9 @@ $proposals = mysqli_query($conn, $q);
                          <td><?php echo $s3['firstname'] . ' ' . $s3['lastname']; ?></td>
                          <td><?php echo @$s4['firstname'] . ' ' . @$s4['lastname']; ?></td>
                          <td><?php echo @$s5['firstname'] . ' ' . @$s5['lastname']; ?></td>
-                         <td><a href="admin/<?php echo $proposal['proposal_file']; ?>" download>File</a>
+                         <td id="proposal-action"><a href="admin/<?php echo $proposal['proposal_file']; ?>" download>Download Proposal</a>
                               <?php if (!$proposal['is_approved']) { ?>
-                                   <button onclick="approveProposal(<?php echo $proposal['id'] ?>)">Approve</button>
+                                   <button onclick="approveProposal(<?php echo $proposal['id'] ?>, this)">Approve</button>
                               <?php } ?>
                          </td>
                     </tr>
@@ -58,10 +58,10 @@ $proposals = mysqli_query($conn, $q);
           </table>
      </div>
      <script>
-          function approveProposal(id) {
+          function approveProposal(id, el) {
                let ajax = new XMLHttpRequest()
                ajax.onload = function() {
-                    console.log(this.responseText);
+                    el.parentNode.removeChild(el)
                }
                ajax.open('POST', 'utils/approveProposal.php')
                ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
