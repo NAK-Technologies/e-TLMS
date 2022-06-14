@@ -42,9 +42,18 @@ $proposals = mysqli_query($conn, $q);
                          <td><?php echo $s3['firstname'] . ' ' . $s3['lastname']; ?></td>
                          <td><?php echo $s4['firstname'] . ' ' . $s4['lastname']; ?></td>
                          <td><?php echo $s5['firstname'] . ' ' . $s5['lastname']; ?></td>
+                         <td><a href="admin/<?php echo $proposal['proposal_file']; ?>" download>File</a> <button onclick="approveProposal(<?php echo $proposal['id'] ?>)">Approve</button></td>
                     </tr>
 
                <?php } ?>
           </table>
      </div>
+     <script>
+          function approveProposal(id) {
+               let ajax = new XMLHttpRequest()
+               ajax.open('POST', 'utils/approveProposal.php')
+               ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+               ajax.send(`id=${id}`)
+          }
+     </script>
 </body>
