@@ -7,6 +7,8 @@ if (isset($_POST['submit'])) {
      $s3 = $_POST['s3_id'];
      $s4 = $_POST['s4_id'];
      $s5 = $_POST['s5_id'];
+     $class_id = $_POST['class_id'];
+     $teacher = $_POST['teacher'];
      if ($s4 == '') {
           $s4 = 0;
      }
@@ -22,7 +24,7 @@ if (isset($_POST['submit'])) {
      $location = "uploads/projects/" . $_FILES["proposal"]["name"];
      // echo ($location);
 
-     $q = "INSERT INTO fyp_proposal (student1_id, student2_id, student3_id, student4_id, student5_id, project_name, proposal_file) values ($s1,$s2,$s3,$s4,$s5,'$name','$location')";
+     $q = "INSERT INTO fyp_proposal (student1_id, student2_id, student3_id, student4_id, student5_id, project_name, proposal_file, teacher_id, class_id) values ($s1,$s2,$s3,$s4,$s5,'$name','$location','$teacher', $class_id)";
 
      if (mysqli_query($conn, $q)) {
           echo 'done';

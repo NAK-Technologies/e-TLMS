@@ -30,10 +30,17 @@
 		</div>
 	</div>
 	<?php
-	$q = "SELECT * from teacher where teacher_id = '$session_id' and is_supervisor = 1";
-	$r = mysqli_query($conn, $q);
-	if (mysqli_num_rows($r) > 0) {
+	$path = explode('/', $_SERVER['REQUEST_URI']);
+	$path = end($path);
+	$path = explode('.', $path);
+	$path = $path[0];
+	// echo $path;
+	if ($path != 'fyp_teacher') {
+		$q = "SELECT * from teacher where teacher_id = '$session_id' and is_supervisor = 1";
+		$r = mysqli_query($conn, $q);
+		if (mysqli_num_rows($r) > 0) {
 	?>
-		<span onclick="window.location.href = 'fyp_teacher.php'" style="height: 50px; width: 50px; display: flex; justify-content: center; align-items: center; border-radius: 50%; background-color: #3388ff; box-shadow: 2px 2px 5px #33333373; color: white; position: fixed; bottom: 100px; left: 100px; cursor: pointer;"><i class="icon-book"></i> <b style="color: black;"></span>
-	<?php } ?>
+			<span onclick="window.location.href = 'fyp_teacher.php'" style="height: 50px; width: 50px; display: flex; justify-content: center; align-items: center; border-radius: 50%; background-color: #3388ff; box-shadow: 2px 2px 5px #33333373; color: white; position: fixed; bottom: 100px; left: 100px; cursor: pointer;"><i class="icon-book"></i> <b style="color: black;"></span>
+	<?php }
+	} ?>
 	<?php include('avatar_modal.php'); ?>
